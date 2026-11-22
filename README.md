@@ -27,10 +27,11 @@ npx skills add gustavosoares/my-skills --skill '*' -g -a claude-code -a cursor -
 **A specific skill** (any name from the [inventory](#skills-inventory)):
 
 ```bash
-npx skills add gustavosoares/my-skills --skill troubleshoot-github-aws-runners -g -a claude-code -a cursor -y
+npx skills add gustavosoares/my-skills --skill git-commit -g -a claude-code -a cursor -y
 ```
 
-List several names after `--skill` to install more than one. Drop
+List several names after `--skill` to install more than one
+(`--skill git-commit git-create-pr`). Drop
 `-g -a … -y` to pick scope and agents in the interactive prompt instead.
 
 ### Update
@@ -44,7 +45,7 @@ npx skills update -g -y
 **A specific skill:**
 
 ```bash
-npx skills update troubleshoot-github-aws-runners -g -y
+npx skills update git-commit -g -y
 ```
 
 `update` covers every globally installed skill, including ones from other
@@ -71,6 +72,15 @@ my-skills/
   required tools and permissions in their header.
 
 ## Skills inventory
+
+### Git workflow
+
+| Skill | Description | Requires |
+|-------|-------------|----------|
+| [`git-commit`](skills/git-commit/SKILL.md) | Commit message from staged changes in the repo's convention (Conventional Commits by default); asks before committing and pushing | `git` |
+| [`git-create-pr`](skills/git-create-pr/SKILL.md) | Open a GitHub PR: checks branch and base, asks before pushing, drafts a short title and description (or fills the repo's PR template) for your review, then creates it | `git`, authenticated [`gh`](https://cli.github.com) |
+
+### CI/CD
 
 | Skill | Description | Requires |
 |-------|-------------|----------|
