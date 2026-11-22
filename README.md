@@ -93,6 +93,12 @@ my-skills/
 |-------|-------------|----------|
 | [`troubleshoot-github-aws-runners`](skills/troubleshoot-github-aws-runners/SKILL.md) | Diagnose self-hosted GitHub Actions jobs stuck in Queued, scale-up not launching, fleets at cap, DLQ messages and JIT registration failures | Runners deployed with [terraform-aws-github-runner](https://github.com/github-aws-runners/terraform-aws-github-runner); `aws`, `jq`; optional `gh`, [Granted](https://granted.dev) |
 
+### Infrastructure as code
+
+| Skill | Description | Requires |
+|-------|-------------|----------|
+| [`new-terraform-module`](skills/new-terraform-module/SKILL.md) | Scaffold or import a reusable Terraform module (AWS by default) that is generic, safe by default, minimum-version constrained and documented, following the repo's existing module conventions | `terraform` (or `tofu`) to validate |
+
 ## Contributing
 
 Issues and PRs are welcome. Conventions for writing skills (frontmatter,
