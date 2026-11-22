@@ -35,7 +35,7 @@ resources and features.
 Before scaffolding anything, make sure the module doesn't already exist:
 
 ```sh
-ls -d */ modules/*/ 2>/dev/null                          # module directories
+find . modules -mindepth 1 -maxdepth 1 -type d -not -name '.*' 2>/dev/null   # module directories
 grep -rlE 'resource "<main resource type>"' --include='*.tf' .   # e.g. aws_s3_bucket
 grep -iE '<name>|<resource>' README.md                   # root module list
 ```
