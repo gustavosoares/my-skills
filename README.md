@@ -79,6 +79,13 @@ my-skills/
 |-------|-------------|----------|
 | [`git-commit`](skills/git-commit/SKILL.md) | Commit message from staged changes in the repo's convention (Conventional Commits by default); asks before committing and pushing | `git` |
 | [`git-create-pr`](skills/git-create-pr/SKILL.md) | Open a GitHub PR: checks branch and base, asks before pushing, drafts a short title and description (or fills the repo's PR template) for your review, then creates it | `git`, authenticated [`gh`](https://cli.github.com) |
+| [`pr-description`](skills/pr-description/SKILL.md) | Short, natural PR description from the branch, ready to paste; doesn't push or touch GitHub | `git` |
+
+### GitHub repo setup
+
+| Skill | Description | Requires |
+|-------|-------------|----------|
+| [`github-branch-protection`](skills/github-branch-protection/SKILL.md) | Protect the default branch with a ruleset: PRs required, code-owner approval, required CI checks, merge methods, fork-PR workflow approval; solo-maintainer bypass handled | Admin on the repo; authenticated `gh`, `jq`; rulesets need a public repo or GitHub Pro/Team/Enterprise |
 
 ### CI/CD
 
