@@ -105,6 +105,13 @@ Issues and PRs are welcome. Conventions for writing skills (frontmatter,
 scripts, keeping skills generic, verification) are in [AGENTS.md](AGENTS.md),
 which `CLAUDE.md` imports so every agent follows the same rules.
 
+CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs on every PR
+and push to `main`: `bash -n` and `shellcheck` on scripts,
+[`scripts/check-skills.sh`](scripts/check-skills.sh) on every `SKILL.md`, and
+`markdownlint` with the relaxed rules in
+[`.markdownlint-cli2.yaml`](.markdownlint-cli2.yaml). Run
+`scripts/check-skills.sh` locally before opening a PR.
+
 ## License
 
 [MIT](LICENSE)
