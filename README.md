@@ -73,6 +73,12 @@ my-skills/
 
 ## Skills inventory
 
+### Onboarding & docs
+
+| Skill | Description | Requires |
+|-------|-------------|----------|
+| [`i-know-kungfu`](skills/i-know-kungfu/SKILL.md) | Read-only overview of the repo you're in: purpose, tech stack, code map, local setup, Mermaid diagrams of key workflows, CI/CD pipeline and PR checks, deploys and environments, gotchas; offers to save it as Markdown | `git`; optional authenticated [`gh`](https://cli.github.com) for rulesets and branch protection |
+
 ### Git workflow
 
 | Skill | Description | Requires |
