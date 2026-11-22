@@ -81,3 +81,7 @@ my-skills/
 Issues and PRs are welcome. Conventions for writing skills (frontmatter,
 scripts, keeping skills generic, verification) are in [AGENTS.md](AGENTS.md),
 which `CLAUDE.md` imports so every agent follows the same rules.
+
+## License
+
+[MIT](LICENSE)
