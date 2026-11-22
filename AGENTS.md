@@ -6,7 +6,7 @@ installed with the [Skills CLI](https://github.com/vercel-labs/skills)
 
 ## Layout
 
-```
+```text
 skills/<skill-name>/
 ├── SKILL.md        # required
 ├── scripts/        # optional: helper scripts the skill runs

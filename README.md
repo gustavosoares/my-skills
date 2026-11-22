@@ -55,7 +55,7 @@ command above for those.
 
 ## Layout
 
-```
+```text
 my-skills/
 └── skills/
     └── <skill-name>/
