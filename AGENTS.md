@@ -33,6 +33,12 @@ skills/<skill-name>/
   link it from the body.
 - Ask the user for anything environment-specific (accounts, profiles, regions,
   repos, prefixes) rather than assuming a default.
+- Shell snippets in SKILL.md run in the user's login shell (often zsh on
+  macOS), not in bash. Write them to work in both: no globs that might match
+  nothing (zsh aborts with `no matches found`; quote the pattern or use
+  `find`), no bash-only syntax (`read -a`, `${var,,}`, arrays), and don't rely
+  on word-splitting of unquoted variables. Anything that needs bash goes in a
+  script under `scripts/` with a `#!/usr/bin/env bash` shebang.
 
 ## Keep skills generic
 
