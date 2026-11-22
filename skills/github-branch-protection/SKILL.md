@@ -72,7 +72,7 @@ Use a real login or `@org/team`. In a team repo, the team needs write access. Th
 
 ## 4. Apply
 
-The bundled script (`scripts/apply-ruleset.sh`) builds the ruleset JSON, then creates it or updates it in place if one with the same name exists. Your working directory is the user's project, so resolve its absolute path first: use `<skill base directory>/scripts/apply-ruleset.sh` (the directory reported when this skill loaded), else the first that exists of:
+The bundled script (`scripts/apply-ruleset.sh`) builds the ruleset JSON, then creates it or updates it in place if one with the same name exists. An update merges into the existing ruleset: it sets only the options below and keeps everything else (other rules, other bypass actors, conditions, pull request parameters it doesn't manage). Without `-c`, an existing required-checks rule is left as it is; with `-c`, its check list is replaced. Your working directory is the user's project, so resolve its absolute path first: use `<skill base directory>/scripts/apply-ruleset.sh` (the directory reported when this skill loaded), else the first that exists of:
 
 ```sh
 for d in ~/.claude/skills ~/.agents/skills ~/.cursor/skills; do
@@ -85,12 +85,12 @@ If none exists, suggest reinstalling: `npx skills add gustavosoares/my-skills --
 
 ```sh
 S=<resolved path>
-$S -d -c ci-checks                 # dry run: print JSON
+$S -d -c ci-checks                 # dry run: print the JSON that would be sent
 $S -c ci-checks                    # solo: admin can merge own PRs
 $S -B -a 1 -m squash,rebase        # team: no bypass
 ```
 
-Options: `-r owner/repo`, `-n name` (default `protect-main`), `-c` checks, `-m` merge methods, `-a` approvals, `-B` no bypass, `-d` dry run.
+Options: `-r owner/repo`, `-n name` (default `protect-main`), `-c` checks, `-m` merge methods, `-a` approvals, `-B` no bypass, `-d` dry run, `-h` help. On an update, compare the dry-run JSON with the live ruleset (`gh api repos/{owner}/{repo}/rulesets/<id>`) and show the user what changes.
 
 For **public repos**, require approval before workflows run on fork PRs. Send a JSON body; `-f` flags don't apply this setting:
 
