@@ -6,7 +6,7 @@ installed with the [Skills CLI](https://github.com/vercel-labs/skills)
 
 ## Layout
 
-```
+```text
 skills/<skill-name>/
 ├── SKILL.md        # required
 ├── scripts/        # optional: helper scripts the skill runs
@@ -71,6 +71,8 @@ committing, grep for any organization-specific names.
 2. Add or update the skill's row in the README **Skills inventory**, including
    the **Requires** column.
 3. Verify:
+   - `scripts/check-skills.sh` passes (frontmatter, name/directory match,
+     description length, line count, README inventory link)
    - `bash -n` on every script, plus `shellcheck` if it's installed
    - `--help` works, and missing required flags fail cleanly
    - Exercise the script against stubbed CLIs (fake `aws`/`gh` on `PATH`) when

@@ -63,7 +63,7 @@ Allowing `skipped` lets PRs that touch no relevant paths still merge. Don't requ
 
 Create `.github/CODEOWNERS` if it's missing (ask who owns what for team repos):
 
-```
+```text
 # Default owner for everything; requested automatically on every PR
 * @<owner-login>
 ```

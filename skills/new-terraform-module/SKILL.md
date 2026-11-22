@@ -56,7 +56,7 @@ Only continue with a new module once the user confirms.
 
 ## 1. Layout
 
-```
+```text
 <module>/
   main.tf        # resources; locals and data sources may live here too
   variables.tf   # inputs, grouped by feature with section comments

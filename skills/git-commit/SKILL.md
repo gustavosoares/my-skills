@@ -55,7 +55,7 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`,
 
 ## 4. Write the message
 
-```
+```text
 <type>(<scope>): <description>
 
 <body: what changed and why, wrapped at ~72 chars>

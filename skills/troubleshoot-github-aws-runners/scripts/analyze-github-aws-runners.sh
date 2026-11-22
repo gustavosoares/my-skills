@@ -216,6 +216,7 @@ echo "  (max = scale-up RUNNERS_MAXIMUM_COUNT; min_run_min = scale-down MINIMUM_
 # EC2
 # ---------------------------------------------------------------------------
 section "EC2 runners (running + pending)"
+# shellcheck disable=SC2016 # backticks are JMESPath literals, not shell
 INSTANCES_JSON=$(aws_cmd ec2 describe-instances \
   --filters \
   "Name=tag:ghr:Application,Values=github-action-runner" \
@@ -256,13 +257,11 @@ sqs_attrs() {
 }
 
 F_VIS=()
-F_AGE=()
 F_DLQ=()
 F_QISSUE=()
 for ((i = 0; i < N; i++)); do
   env="${F_ENV[$i]}"
   F_VIS[i]=0
-  F_AGE[i]="n/a"
   F_DLQ[i]=0
   F_QISSUE[i]=0
   echo "Fleet: ${F_KEY[$i]}"
@@ -282,7 +281,6 @@ for ((i = 0; i < N; i++)); do
     echo "  build: ${build_url##*/}"
     echo "    visible=${visible}  in_flight=${inflight}  oldest_age_sec=${age}"
     F_VIS[i]="${visible}"
-    F_AGE[i]="${age}"
     if is_nonneg_int "${visible}" && [[ "${visible}" -gt 0 ]]; then
       F_QISSUE[i]=1
     elif is_nonneg_int "${age}" && [[ "${age}" -gt 300 ]]; then

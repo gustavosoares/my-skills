@@ -51,7 +51,7 @@ Local tools: `aws` and `jq`. Optional: an authenticated `gh` for the GitHub side
 
 ## Workflow
 
-```
+```text
 - [ ] 0. Choose AWS profile (ask the user)
 - [ ] 1. Locate + run analyze script (always first)
 - [ ] 2. Pull GitHub job/run details (gh api)
@@ -193,7 +193,7 @@ so "EC2 running" ≠ "runner available".
 
 ### Step 5: Decision tree
 
-```
+```text
 Job Queued
 ├─ No webhook "queued" event for the job ID within ~1 min
 │  └─ GitHub delivery delay / failure → GitHub App → Advanced → Recent deliveries
