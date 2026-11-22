@@ -44,9 +44,8 @@ This repo is public. Skills must not contain:
 - Snapshots of someone's config (caps, sizes, schedules, label names). Read live
   values at runtime or ask the user.
 
-Use placeholders like `OWNER/REPO`, `<prefix>`, `$REGION`, `$PROFILE`. When
-porting a skill from a private repo, grep for the old org's names before
-committing.
+Use placeholders like `OWNER/REPO`, `<prefix>`, `$REGION`, `$PROFILE`. Before
+committing, grep for any organization-specific names.
 
 ## Scripts
 
@@ -77,5 +76,16 @@ committing.
    - Exercise the script against stubbed CLIs (fake `aws`/`gh` on `PATH`) when
      it can't run against real infrastructure
    - Scan for leftover org-specific names (see "Keep skills generic")
-4. Use Conventional Commits (`feat(skills): …`, `fix(<skill>): …`, `docs: …`)
-   and open a PR against `main`.
+4. Use Conventional Commits (`feat(skills): …`, `fix(<skill>): …`, `docs: …`).
+
+## Git and pull requests
+
+- **Never commit, push or open a PR on your own.** When the change is ready,
+  ask the operator whether they want to commit and push. Wait for a yes for
+  each step.
+- **Show the PR title and description first.** Put the draft in the
+  conversation, apply any edits the operator asks for, and create the PR
+  against `main` only once they approve it.
+- PR descriptions, commit messages and other public text describe what the
+  change does and how it was tested. Leave out where the work came from
+  (other repos, employers, earlier private versions).
