@@ -87,6 +87,14 @@ my-skills/
 | [`git-create-pr`](skills/git-create-pr/SKILL.md) | Open a GitHub PR: checks branch and base, asks before pushing, drafts a short title and description (or fills the repo's PR template) for your review, then creates it | `git`, authenticated [`gh`](https://cli.github.com) |
 | [`pr-description`](skills/pr-description/SKILL.md) | Short, natural PR description from the branch, ready to paste; doesn't push or touch GitHub | `git` |
 
+### Code review
+
+| Skill | Description | Requires |
+|-------|-------------|----------|
+| [`review-code`](skills/review-code/SKILL.md) | Bug-focused review of the current branch or a PR: fresh context, follows callers outside the diff, separate passes for logic, edge cases and blast radius, and only findings backed by a concrete failure scenario; report-only unless you ask it to post or fix | `git`; authenticated [`gh`](https://cli.github.com) for PR targets |
+| [`review-security`](skills/review-security/SKILL.md) | Security review of the current branch or a PR: maps trust boundaries, traces untrusted input to sinks, checks auth, secrets, crypto, IaC, CI workflows and dependencies, with severity and confidence | `git`; authenticated `gh` for PR targets; optional `gitleaks`, `semgrep`, `trivy`, ecosystem audit tools |
+| [`review-pr-comments`](skills/review-pr-comments/SKILL.md) | Work through review comments on your PR: fetches unresolved threads, checks each against the code, triages, applies agreed fixes and drafts replies; asks before committing, pushing, replying or resolving | `git`, `jq`, authenticated `gh` |
+
 ### GitHub repo setup
 
 | Skill | Description | Requires |
